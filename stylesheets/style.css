@@ -7,11 +7,11 @@ Author: Patrick Forringer <patrick@forringer.com>
 Version: v0.0.3
 Template: twentytwelve
 */
-@import url("../twentytwelve/style.css");
+@import url("./twentytwelve.css");
 .site-header hgroup {
   padding-left: 250px;
   padding-top: 15px;
-  background: transparent url("./img/site_logo.png") no-repeat top left;
+  background: transparent url("../images/site_logo.png") no-repeat top left;
   height: 192px;
   margin-bottom: -115px;
 }
