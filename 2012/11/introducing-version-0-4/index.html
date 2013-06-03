@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Introducing Version 0.4 | Android Thermostat</title>
+<!--[if lt IE 9]>
+<script src="/javascripts/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='/stylesheets/style.css?ver=3.5.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='/stylesheets/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+</head>
+
+<body class="home page page-id-88 page-template page-template-page-templatesfront-page-php full-width template-front-page custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+  <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title"><a href="/" title="Android Thermostat" rel="home">Android Thermostat</a></h1>
+      <h2 class="site-description">A DIY Open Source Thermostat</h2>
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+      <h3 class="menu-toggle">Menu</h3>
+      <div class="menu-home-container"><ul id="menu-home" class="nav-menu"><li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-60"><a href="/">Home</a></li>
+<li id="menu-item-301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-301"><a href="/assembly-instructions/">Assembly Instructions</a></li>
+<li id="menu-item-174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-174"><a href="http://www.reddit.com/r/AndroidThermostat/">Community</a></li>
+</ul></div>   </nav><!-- #site-navigation -->
+
+      </header><!-- #masthead -->
+
+  <div id="main" class="wrapper">
+  <div id="primary" class="site-content">
+    <div id="content" role="main">
+
+              
+        
+  <article id="post-88" class="post-88 page type-page status-publish hentry">
+    <header class="entry-header">
+      <h1 class="entry-title">Introducing Version 0.4</h1>
+    </header>
+
+
+
+
+
+
+
+
+    
+    <div class="entry-content">
+      <p>I’m happy to announce that version 0.4 of the Android Thermostat client and server are now both available in the Google Play store. The list of enhancements include:</p>
+<p><strong>Bug Fixes</strong>&nbsp;- There were several minor issues with version 0.3 that I published a hot fix for in the forum, but hadn’t updated in the official releases until now. They include displaying the wrong target temperature and weather at times as well as slowness on older phones. All of these have been addressed in version 0.4.</p>
+<p><strong>New Server Interface</strong>&nbsp;- Before the server interface was virtually non-existent since the thermostat is controlled via the client. It’s still very basic, but I added indicators that show the current state of the thermostat and it’s IP address to make it easier to connect to remotely. I also added a button to stop the server, something that was impossible to do without uninstalling in the previous release and to launch the client.</p>
+<p><a href="/images/2012/11/screenshot_2012-11-24-13-57-05.png"><img src="/images2012/11/screenshot_2012-11-24-13-57-05-300x187.png" alt="" title="Screenshot_2012-11-24-13-57-05" width="300" height="187" class="alignright size-medium wp-image-200"></a><strong>New Client Interface</strong>&nbsp;- This is where the majority of the work has been done. It was not intuitive with the previous interface that you had to tap the screen to pull up the menu, so this menu has been completely removed. You can now tap on specific areas of the screen to change those settings without accessing a menu.</p>
+<p>All of the settings pages have been greatly simplified and cleaned up. All of the help text that was present before has been moved off to help icons which reduced the size of each screen and improved the alignment making for a much nicer interface.</p>
+<p>Lastly, the home screen itself looks significantly different now. It includes the current time and a graphical status bar that shows what today’s schedule is and where you currently are on that schedule. The alignment and font sizes on the other elements have also been standardized.</p>
+<p><strong>International Support</strong>&nbsp;- After receiving multiple requests, I’ve added international support to this version. &nbsp;You can now choose between&nbsp;Fahrenheit and Celsius for the temperature scale and the Geolocation and weather lookups work from anywhere in the world now. &nbsp;I do need to add an important disclaimer that I’m not familiar with the furnace wiring and voltage standards in other countries, so you’ll need to check this yourself before hooking up the hardware. &nbsp;I just added software support this round.</p>
+<p><a href="/images/2012/11/web.jpg"><img src="/images/2012/11/web-300x153.jpg" alt="web interface" title="Web Interface" width="300" height="153" class="alignright size-medium wp-image-192"></a><strong>Web Interface</strong> – Using an another Android phone is no longer the only way to remotely control the thermostat. &nbsp;There is now a fully functional web interface that you can use to view the status of the thermostat and change all of the settings. &nbsp;Just use a web browser to pull up port 8080 at &nbsp;the thermostat’s ip address. (http://192.168.1.101:8080/)  This should also server as an interface for non android based mobile devices such as iPhones, iPads and Windows phones.</p>
+<p><strong>Safety Backup System</strong> – Being based on Android, open source and frequently changing, the thermostat control application is more likely to fail than a standard thermostat. &nbsp;I wanted to provide a way to ensure the application failed safely if it does fail, so the house doesn’t get too hot or cold to cause harm to your pets or pipes while you’re away.</p>
+<p>I believe this has been accomplished by modifying the firmware on the IOIO to add some code that will act as a backup system. &nbsp;It is designed to maintain a safe temperature range of 45F-95F regardless of what commands it receives from the application. &nbsp;As long as the temperature is within that range, it will run the commands that the phone sends, but if the phone tells it to go outside of that range, the backup system will kick in and override those commands. &nbsp;In addition to just having a second system, this backup code is very minimal, should not change frequently like the application and be much more stable. &nbsp;Of course, no system is foolproof and I have to include the usual ‘use at your own risk’ disclaimer. See the <a href="http://www.reddit.com/r/AndroidThermostat/comments/13gqwe/firmware_update/">instructions here</a> to update the firmware on your IOIO.</p>
+<p><a href="/images/2012/11/atc_web.png"><img src="/images/2012/11/atc_web-150x150.png" alt="Android Thermostat Logo" title="Android Thermostat Logo" width="150" height="150" class="alignright size-thumbnail wp-image-203"></a><strong>New Logo</strong> – I liked the old logo pretty well, but since Honeywell is apparently <a href="http://techcrunch.com/2012/02/07/honeywell-vs-nest-when-the-establishment-sues-silicon-valley/">claiming to own ’round’</a> when it comes to thermostats, I figured it was best to steer clear of those shenanigans. &nbsp;Thank you to <a href="https://github.com/destos">destos</a> for drawing the new logo.  His name is Thermo and I think he helps to give a bit of personality to the project.</p>
+<p>As always, the code for everything is in our (newly organized) <a href="https://github.com/AndroidThermostat">GitHub</a> and any contributions are welcome and greatly appreciated.</p>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="entry-meta">
+          </footer><!-- .entry-meta -->
+  </article><!-- #post -->
+
+      
+    </div><!-- #content -->
+  </div><!-- #primary -->
+
+  </div><!-- #main .wrapper -->
+</div><!-- #page -->
+
+
+<!-- tracker added by Ultimate Google Analytics plugin v1.6.0: http://www.oratransplant.nl/uga -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-34742925-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type='text/javascript' src='/javascripts/navigation.js?ver=1.0'></script>
+</body>
+</html>

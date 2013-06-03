@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Auto Away | Android Thermostat</title>
+<!--[if lt IE 9]>
+<script src="/javascripts/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='/stylesheets/style.css?ver=3.5.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='/stylesheets/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+</head>
+
+<body class="home page page-id-88 page-template page-template-page-templatesfront-page-php full-width template-front-page custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+  <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title"><a href="/" title="Android Thermostat" rel="home">Android Thermostat</a></h1>
+      <h2 class="site-description">A DIY Open Source Thermostat</h2>
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+      <h3 class="menu-toggle">Menu</h3>
+      <div class="menu-home-container"><ul id="menu-home" class="nav-menu"><li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-60"><a href="/">Home</a></li>
+<li id="menu-item-301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-301"><a href="/assembly-instructions/">Assembly Instructions</a></li>
+<li id="menu-item-174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-174"><a href="http://www.reddit.com/r/AndroidThermostat/">Community</a></li>
+</ul></div>   </nav><!-- #site-navigation -->
+
+      </header><!-- #masthead -->
+
+  <div id="main" class="wrapper">
+  <div id="primary" class="site-content">
+    <div id="content" role="main">
+
+              
+        
+  <article id="post-88" class="post-88 page type-page status-publish hentry">
+    <header class="entry-header">
+      <h1 class="entry-title">Auto Away</h1>
+    </header>
+
+
+
+
+
+
+
+
+    
+    <div class="entry-content">
+      <p>One of the new features in version 0.3 of the Android Thermostat software is Away mode, which includes the option for ‘occupancy detection’ so that your thermostat can automatically be set in Away mode when you leave the house and be set back to Home mode when you are on your way home. This feature will work with multiple people. &nbsp;This video shows how it works.</p>
+<p><iframe src="http://www.youtube.com/embed/JSxIqeQjZuM?rel=0" frameborder="0" width="853" height="480"></iframe></p>
+<p>Before you get started you will need to choose set your desired away mode settings from the Set Temperature page. You will also need to purchase the program <a href="https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&amp;hl=en">Tasker</a> from the Play Store. &nbsp;Tasker runs in the background on your phone and checks for conditions like the cell tower you are connected to changing and lets you take action on them.</p>
+<h2>Step 1 – Make your thermostat API accessible from the Internet.</h2>
+<p>By default your thermostat can only be access from your local network. &nbsp;In order to send commands to it when you are not on your local WiFi, you will need to make it Internet accessible. &nbsp;The first thing you need to do is go into the General Settings tab and set a password.</p>
+<p>Next you will need to go into the port forwarding section of your router and enable port 8080 to forward to the IP address of your thermostat.</p>
+<h2><a href="/images/auto-away/tasker_get.jpg"><img class="alignright size-medium wp-image-111" title="Tasker HTTP Get" src="/images/auto-away/tasker_get-180x300.jpg" alt="" width="180" height="300"></a>Step 2 – Create the Tasker tasks</h2>
+<p>Click on the Tasks tab in Tasker and click the plus to add a new task. &nbsp;Give it a name such as “Thermostat Home” and then click the plus button to add an Action. &nbsp;For the action type choose Net, then HTTP Get. &nbsp;For the server/port enter your <span style="text-decoration: underline;">public</span> IP address, followed by :8080. &nbsp;In the path field enter:</p>
+<p><em>/utils/away?password=[password]&amp;name=[name]&amp;away=0</em></p>
+<p>You will need to swap out the content in brackets [] with your information. &nbsp;Click the green checkbox to save and then repeat this process to create a new task for “Thermostat Away”. &nbsp;The values will be exactly the same with the exception of &amp;away=1 instead of 0.</p>
+<h2>Step 3 – Create the Tasker Profiles</h2>
+<p><a href="/images/auto-away/tasker_cell_near.png"><img class="alignright size-medium wp-image-122" title="Tasker_Cell_Near" src="/images/auto-away/tasker_cell_near-180x300.png" alt="" width="180" height="300"></a>From the Profiles tab, click the plus to add a new profile and name it ‘Home’. &nbsp;For the first context, choose State, then Phone and Cell Near to tell Tasker to execute this rule when you are within range of the cell towers near your house.</p>
+<p>Press the Scan button to locate near by cell towers. &nbsp;You may want to get in your car and drive a square mile around your house to be sure it picks up all of the nearby towers and to increase the range that is considered ‘home’ so your thermostat returns to home mode a few minutes before you arrive. &nbsp;When you are done, press the button to stop scanning and click and hold in the text box and choose Copy All. &nbsp;We’re going to need this list of cell towers for a second profile.</p>
+<p>Click the green checkbox and on the Task Selection popup, choose the Thermostat Home task. &nbsp;This has associated the rule of being near these cell towers with sending the command to your thermostat to place it in Home mode.</p>
+<p>Repeat this process to create an Away mode. &nbsp;You can paste in the list of cell towers instead of re-scanning. &nbsp;You will also need to choose the option to Invert the rule so it executes when you are <span style="text-decoration: underline;">not</span> near these cell towers. &nbsp;When you are done creating the profiles, make sure the On button is checked in the bottom right corner so the rules execute. &nbsp;That’s it, your&nbsp;thermostat&nbsp;will automatically go in away mode when you leave the house now.</p>
+<h2>A Few Notes</h2>
+<p><strong>Will work with multiple people?</strong> &nbsp;Yes! &nbsp;The name parameter in the url is used to determine when each device comes and goes. &nbsp;If any of the devices are reporting as being home, the thermostat will remain in home mode. &nbsp;It will only switch to away mode when all thermostats are away.</p>
+<p><strong>Why is Tasker needed?</strong>&nbsp; I realize the $6 app is not ideal and I had considered building this into the client, but opted not to. &nbsp;The main reason is to avoid having yet another process running in the background on phones. &nbsp;Tasker is well tested and already used by a number of people to automate other tasks and I think it makes sense to piggyback off of it rather than writing something new.</p>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="entry-meta">
+          </footer><!-- .entry-meta -->
+  </article><!-- #post -->
+
+      
+    </div><!-- #content -->
+  </div><!-- #primary -->
+
+  </div><!-- #main .wrapper -->
+</div><!-- #page -->
+
+
+<!-- tracker added by Ultimate Google Analytics plugin v1.6.0: http://www.oratransplant.nl/uga -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-34742925-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type='text/javascript' src='/javascripts/navigation.js?ver=1.0'></script>
+</body>
+</html>

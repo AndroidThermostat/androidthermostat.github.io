@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Version 0.3 Now Available | Android Thermostat</title>
+<!--[if lt IE 9]>
+<script src="/javascripts/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='/stylesheets/style.css?ver=3.5.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='/stylesheets/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+</head>
+
+<body class="home page page-id-88 page-template page-template-page-templatesfront-page-php full-width template-front-page custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+  <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title"><a href="/" title="Android Thermostat" rel="home">Android Thermostat</a></h1>
+      <h2 class="site-description">A DIY Open Source Thermostat</h2>
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+      <h3 class="menu-toggle">Menu</h3>
+      <div class="menu-home-container"><ul id="menu-home" class="nav-menu"><li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-60"><a href="/">Home</a></li>
+<li id="menu-item-301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-301"><a href="/assembly-instructions/">Assembly Instructions</a></li>
+<li id="menu-item-174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-174"><a href="http://www.reddit.com/r/AndroidThermostat/">Community</a></li>
+</ul></div>   </nav><!-- #site-navigation -->
+
+      </header><!-- #masthead -->
+
+  <div id="main" class="wrapper">
+  <div id="primary" class="site-content">
+    <div id="content" role="main">
+
+              
+        
+  <article id="post-88" class="post-88 page type-page status-publish hentry">
+    <header class="entry-header">
+      <h1 class="entry-title">Version 0.3 Now Available</h1>
+    </header>
+
+
+
+
+
+
+
+
+    
+    <div class="entry-content">
+      <p>It has been a little over two weeks since I published the initial designs for Android Thermostat and it has been very well received. Thanks to several popular blogs such as <a href="http://hackaday.com/2012/10/13/open-source-android-thermostat/" target="_blank">HackADay</a>, <a href="http://lifehacker.com/5951766/repurpose-an-old-android-phone-as-a-smart-thermostat" target="_blank">LifeHacker</a>, <a href="http://phandroid.com/2012/10/15/diy-smartphone-thermostat-has-us-wondering-what-happened-to-androidhome/" target="_blank">Phandroid</a> and <a href="http://www.howtogeek.com/126734/repurpose-an-old-android-phone-as-a-thermostat/" target="_blank">HowToGeek</a> publishing articles on the thermostat and it being very well received on Reddit, the project was able to get off to an excellent start. &nbsp;The site has had over 16,000 visits in it’s first two weeks.</p>
+<p>Along with the increase in visitors came several suggestions on how to improve the thermostat. &nbsp;Some of these suggestions were hardware based and are being worked on currently, but many others were software based, many of which have been addressed in this release. &nbsp;Here’s what’s new:</p>
+<ul>
+<li><strong>Run as a service</strong> – The server component of the application now runs as a background service. &nbsp;This allows it to operate in the background in older versions of Android, but also allows it to automatically launch on startup. &nbsp;This is important to ensure your thermostat continues to work properly if the phone reboots while you’re gone.<br><br></li>
+<li><strong>Password protection</strong> – You have the option now to set a password lock on your thermostat. &nbsp;This will allow you to securely expose the API to the Internet, allowing you to control your thermostat from anywhere.<br><br></li>
+<li><strong>Auto mode</strong> – Instead of having to set your thermostat to heat or cool you can now set it to Auto and specify a temperature range to maintain. &nbsp;It will automatically run either the heater or air conditioner as needed to maintain that range.<br><br></li>
+<li><strong>Away mode</strong> – You can also specify away mode settings allowing you to set your thermostat in away mode with a few clicks when you leave and then easily return it to your normal settings.<br><br></li>
+<li><strong>Additional safeguards</strong> – Additional code has been added to maintain safe operating conditions. &nbsp;This includes forcing the heater on if the temperature drops below 45F and forcing the air conditioner on if the temperature rises above 100F. &nbsp;It also includes additional try/catch blocks around critical code and minimum time between heat and ac cycles to prevent uncontrolled loops. &nbsp;Additional hardware safety measures are in the plans.<br><br></li>
+<li><strong>Choice of weather service</strong> – You can now specify the url to be used for viewing the forecast instead of going to Weather.com.<br><br></li>
+<li><strong>Scheduling fan cycles</strong> – You can now configure your thermostat to periodically cycle the fan if neither the heat nor the AC have turned on in a while. &nbsp;One use for this is if your upstairs heater doesn’t run very often on some days because the heat from the downstairs unit is rising, you can turn on the fan periodically to disperse some of that heat to the bedrooms.<br><br></li>
+<li><strong>Google TV support</strong> – The remote application can now run on Google TV devices, allowing you to control your thermostat from your tv.<br><br></li>
+<li><strong>Auto Away</strong> – I’m really excited about this feature. &nbsp;You can now use your phone(s) to automatically tell your thermostat when you leave the house and when you are returning to have the thermostat automatically go into away mode to save energy and return. &nbsp;It can track multiple people and will only set the thermostat in away mode when all devices report as being away. &nbsp;<a title="Auto away" href="/auto-away/">Learn more</a>.</li>
+</ul>
+<div><span style="line-height: 24px;">There are also a number of bug fixes in this release. &nbsp;Thank you to everyone for your suggestions. Please stop by the forum if you have any suggestions for future releases.</span></div>
+<p>&nbsp;</p>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="entry-meta">
+          </footer><!-- .entry-meta -->
+  </article><!-- #post -->
+
+      
+    </div><!-- #content -->
+  </div><!-- #primary -->
+
+  </div><!-- #main .wrapper -->
+</div><!-- #page -->
+
+
+<!-- tracker added by Ultimate Google Analytics plugin v1.6.0: http://www.oratransplant.nl/uga -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-34742925-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type='text/javascript' src='/javascripts/navigation.js?ver=1.0'></script>
+</body>
+</html>
