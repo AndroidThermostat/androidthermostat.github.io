@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Assembly Instructions – Rev A | Android Thermostat</title>
+<!--[if lt IE 9]>
+<script src="/javascripts/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='/stylesheets/style.css?ver=3.5.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='/stylesheets/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+</head>
+
+<body class="home page page-id-88 page-template page-template-page-templatesfront-page-php full-width template-front-page custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+  <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title"><a href="/" title="Android Thermostat" rel="home">Android Thermostat</a></h1>
+      <h2 class="site-description">A DIY Open Source Thermostat</h2>
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+      <h3 class="menu-toggle">Menu</h3>
+      <div class="menu-home-container"><ul id="menu-home" class="nav-menu"><li id="menu-item-60" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-60"><a href="/">Home</a></li>
+<li id="menu-item-301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-301"><a href="/assembly-instructions/">Assembly Instructions</a></li>
+<li id="menu-item-174" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-174"><a href="http://www.reddit.com/r/AndroidThermostat/">Community</a></li>
+</ul></div>   </nav><!-- #site-navigation -->
+
+      </header><!-- #masthead -->
+
+  <div id="main" class="wrapper">
+  <div id="primary" class="site-content">
+    <div id="content" role="main">
+
+              
+        
+  <article id="post-88" class="post-88 page type-page status-publish hentry">
+    <header class="entry-header">
+      <h1 class="entry-title">Assembly Instructions – Rev A</h1>
+    </header>
+
+
+
+
+
+
+
+    
+    <div class="entry-content">
+      <p><em>Revision A</em></p>
+<p>If you have access to the right equipment (a 3d printer and a laser cutter, both optional), the assembly process should be very simple and only take a few hours. &nbsp;You will need to solder a handful of components to the board, but is all very simple through-hole soldering, no surface mounts.</p>
+<h1><strong>&nbsp;Parts List</strong></h1>
+<p><strong></strong>Here are the parts you will need for this project and their price at the time these instructions were published.</p>
+<p>1x – <a target="_blank">IOIO for Android</a> – $39.95<br>
+3x – <a href="https://www.sparkfun.com/products/10636" target="_blank">Solid State Relay</a> – $14.85<br>
+1x – <a href="http://www.radioshack.com/product/index.jsp?productId=2062582">Bridge Rectifier</a> – $2.69<br>
+1x – 100uf/50v Capacitor – $1.00 (Radioshack)<br>
+1x – <a href="https://www.sparkfun.com/products/523">10uf/25v Capacitor</a> – $0.45<br>
+1x – <a href="http://www.digikey.com/product-detail/en/V7815W-500R/102-2457-ND/2757928">15v Switching Regulator</a>&nbsp;- $13.34<br>
+2x – <a href="https://www.sparkfun.com/products/8074" target="_blank">3 pin Spring Terminal</a> – $3.00<br>
+1x – <a href="https://www.sparkfun.com/products/117" target="_blank">Break Away Male Headers</a> – $2.95<br>
+1x – <a href="https://www.sparkfun.com/products/743?">Break Away Female Headers</a> – $3.95<br>
+3x – <a href="http://www.radioshack.com/product/index.jsp?productId=2062340" target="_blank">220ohm Resistor</a> – &nbsp;$1.19<br>
+1x – <a href="https://www.sparkfun.com/products/10988">TMP36 Temperature Sensor</a> – $1.50<br>
+1x – <a href="https://www.sparkfun.com/products/8815">3×2 Protoboard</a> – $4.50 (or etched circuit)</p>
+<p>Total Component Cost – <strong>$89.37</strong></p>
+<p><em>You will also need an Android 2.2+ device. &nbsp;If you don’t already have one, you can usually find a used LG Optimus or similar phone on Ebay for $40, making the total cost roughly $140 if you have access to a 3d printer.</em></p>
+<h1><strong>Assembly</strong></h1>
+<h2>Step 1 – Solder Female Headers to IOIO</h2>
+<p>Solder the female header pins to the ports 7,10,12,46, VIN, 3.3v out and Ground as show in the following picture. &nbsp;If you use the break-away headers your connections should look a bit nicer than in the ones in the photo. &nbsp;You may also wish to cover the power LED with a piece of electrical tape if you don’t want a red glow coming from the thermostat.</p>
+<p><a href="/images/rev-a/ioio.jpg"><img class="alignnone size-full wp-image-63" title="IOIO" src="/images/rev-a/ioio.jpg" alt="" width="600" height="498"></a></p>
+<h2>Step 2 – Etch Your Circuit Board</h2>
+<p><a href="https://github.com/AndroidThermostat/Board/tree/master/Revision%20A">Download</a> the circuit board design files.<br>
+<b>Update:</b> An EagleCAD version of the board is <a href="http://www.reddit.com/r/AndroidThermostat/comments/13rre3/the_eagle_files_are_now_available_on_github/">now available</a>, which should allow you to order printed boards from OSHPark or other sources.</p>
+<p><a href="/images/rev-a/protoboard.jpg"><img class="alignnone size-full wp-image-69" title="Protoboard" src="/images/rev-a/protoboard.jpg" alt="" width="600" height="388"></a></p>
+<p>If you have access to a laser cutter, mini mill or another means of etching a circuit board, I recommend you use the Protoboard_Negative.pdf to cut and/or etch it. &nbsp;The etched copper will be on the back side of the circuit board, so the PDF contains a mirror image.&nbsp; Once etched, drill out all of the pad holes with a #60 drill bit (0.04″), with the exception of the ones for the rectifier; you will need to make those slightly larger with a #56 drill bit. &nbsp;You should end up with a board that looks like this.</p>
+<p><a href="/images/rev-a/etchedprotoboard.jpg"><img class="alignnone size-full wp-image-71" title="EtchedProtoboard" src="/images/rev-a/etchedprotoboard.jpg" alt="" width="600" height="400"></a></p>
+<p><em>If you do not have a means of etching a circuit board, you can manually make these connections with wires or by solder the leads together after connecting the components.</em></p>
+<h2>Step 3 – Connect the components</h2>
+<p>Next you need to solder the components to the <span style="text-decoration: underline;">front</span>&nbsp;(non-copper) side of the board according to the Protoboard_Print.pdf diagram. &nbsp;You should end up with a circuit board that looks something like this.</p>
+<p><a href="/images/rev-a/completedprotoboard.jpg"><img class="alignnone size-full wp-image-74" title="CompletedProtoboard" src="/images/rev-a/completedprotoboard.jpg" alt="" width="600" height="396"></a></p>
+<p>In the remaining holes you will need to solder male header pins so that they stick up on the back (copper) side of the board. &nbsp;These will be what join the circuit board to the IOIO. &nbsp;The size of the holes drill precisely matches the header pin size so they will stand in place by themselves while you solder them.</p>
+<h2>Step 4 – Attach the IOIO to the Circuit Board</h2>
+<p>Place the IOIO on a table with the female header pins facing upward and gently lower the circuit board on to it so that the male header pins slide into the female connectors. &nbsp;It’s easiest if you start with pin 46 and start aligning them one at a time, using a pair of needle-nose&nbsp;pliers&nbsp;if necessary.</p>
+<p><a href="/images/rev-a/merged.jpg"><img class="alignnone size-full wp-image-75" title="Merged" src="/images/rev-a/merged.jpg" alt="" width="600" height="304"></a><br>
+<a name="5"><br>
+</a></p><h2><a name="5">Step 5 – Print the Case</a></h2><a name="5">
+</a><p><a name="5">Using a 3D Printer, print both the case and lid with the following STL </a><a href="https://github.com/AndroidThermostat/Case/tree/master/Revision%20A">files</a>. &nbsp;The lid as a tongue that slides into a grove in the base to make an enclosed, mountable unit once the components have been added.</p>
+<p><a href="/images/rev-a/case.jpg"><img class="alignnone size-full wp-image-80" title="Case" src="/images/rev-a/case.jpg" alt="" width="600" height="464"></a><br>
+If you do not have access to a 3d printer you could get a project box from RadioShack and cut out the holes for the thermostat wires, USB port and a few ventilation slots.</p>
+<h2>Step 6 – Mount the Case to Your Wall</h2>
+<p><span style="text-decoration: underline;">Turn off the power to your furnace</span> and remove your existing thermostat. &nbsp;Feed the thermostat wires through the back of the case. &nbsp;Using the screw holes printed in the case, screw the thermostat case to the wall so that the USB port hole is on the right side of the case.</p>
+<p><a href="/images/rev-a/mountedcase.jpg"><img class="alignnone size-full wp-image-78" title="MountedCase" src="/images/rev-a/mountedcase.jpg" alt="" width="600" height="389"></a></p>
+<h2>Step 7 – Insert the IOIO and Circuit Board and&nbsp;Connect Your Thermostat Wires</h2>
+<p>Slide the IOIO and circuit into the right half of the case with the back side of the IOIO facing the wall so that the USB port lines up with the rectangle hole on the side of the case. &nbsp;Using the spring terminals in the top left corner of the circuit board, connect your thermostat wires in the following order from top down:</p>
+<p>C (cyan) – Auxillary Power<br>
+RH (red) – Heater Power<br>
+RC (red) – Cool Power<br>
+Y (yellow) – Cool Relay<br>
+G (green) – Fan Relay<br>
+W (white) – Heat Relay</p>
+<p><a href="/images/rev-a/wired.jpg"><img class="alignnone size-full wp-image-82" title="Wired" src="/images/rev-a/wired.jpg" alt="" width="600" height="329"></a></p>
+<p>Many homes only have a single red wire that provides the power for both heat and cool. &nbsp;You will need to jumper RH to RC with a short wire if this is the case.</p>
+<h2>Step 9 – Connect Your Android Device</h2>
+<p>Slide the case lid onto the case and adhere your Android device to it using an adhesive such as&nbsp;Velcro&nbsp;or 3m strips. &nbsp;Connect the Android device to the IOIO via a short USB cable. &nbsp;Once it is connected, turn the power back on to your furnace and turn on the phone</p>
+<p><a href="/images/rev-a/mountedphone.jpg"><img class="alignnone size-full wp-image-84" title="MountedPhone" src="/images/rev-a/mountedphone.jpg" alt="" width="600" height="296"></a></p>
+<h1>Step 10 – Install the Android Thermostat Apps</h1>
+<p>You will need to install both the <a href="https://play.google.com/store/apps/details?id=com.androidthermostat.server">Server</a> and <a href="https://play.google.com/store/apps/details?id=com.androidthermostat.client">Client</a> applications on the device. &nbsp;Once you’ve installed these applications, launch the server, press home and then launch the client. &nbsp;In the client, click anywhere on the screen to load the menu and choose Select Server. &nbsp;Click the Scan button and select the server that shows up. &nbsp;You should be able to use your thermostat now.</p>
+<p><a href="/images/rev-a/done.jpg"><img class="alignnone size-full wp-image-85" title="Done" src="/images/rev-a/done.jpg" alt="" width="600" height="369"></a></p>
+<p><i>NOTE: There are some risks involved in building your own thermostat.  Safety has been a big concern of mine while building this and there are several safety measures taken such as using relays that fail open, limiting the allowable temperature range and the need for a cyan power line restricting availability to modern furnaces with built in safeguards.  I have no formal training in this area though. <b>BUILD AND USE AT YOUR OWN RISK</b>.</i></p><i>
+</i><p><i>A mechanical fail safe will be added to the next revision of this design to maintain a safe temperature in the event of the application crash or lock up.  Having multiple furnaces may provide some protection against this possibility.  If your house has a single furnace, I recommend you add this fail safe yourself or wait for the next revision.</i></p>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+    <footer class="entry-meta">
+          </footer><!-- .entry-meta -->
+  </article><!-- #post -->
+
+      
+    </div><!-- #content -->
+  </div><!-- #primary -->
+
+  </div><!-- #main .wrapper -->
+</div><!-- #page -->
+
+
+<!-- tracker added by Ultimate Google Analytics plugin v1.6.0: http://www.oratransplant.nl/uga -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-34742925-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type='text/javascript' src='/javascripts/navigation.js?ver=1.0'></script>
+</body>
+</html>
